@@ -63,6 +63,38 @@ class Homepage{
         return cy.get('.btn-success')
     }
 
+    get categoryList (){
+        return cy.get('.list-group')
+    }
+
+    get laptopCategory (){
+        return this.categoryList.find('.list-group-item').eq(2)
+    }
+
+    get monitorsCategory (){
+        return this.categoryList.find('.list-group-item').eq(3)
+    }
+
+    get credentialsLogin (){
+        return cy.get('.nav-item').eq(6)
+    }
+
+    get nextImage (){
+        return cy.get('.carousel-control-next')
+    }
+
+    get previousImage (){
+        return cy.get('.carousel-control-prev')
+    }
+
+    get imagesAll (){
+        return cy.get('.carousel-item')
+    }
+
+    get firstImage (){
+        return this.imagesAll.find('[alt="Third slide"]')
+    }
+
     sendMessage (contactEmailInput, contactNameInput, contactMessageInput){
         this.contactEmailInput.type('test@test.com')
         this.contactNameInput.type('John Brave')

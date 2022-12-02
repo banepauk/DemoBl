@@ -29,4 +29,13 @@ describe('homepage', () => {
       .and('have.text', 'New messageSign upLog inAbout us')
       .and('have.css', 'color', 'rgb(134, 134, 136)')
   })
+
+  it('navigate to laptop category', () => {
+    homepage.laptopCategory.click()
+  })
+
+  it.only('change carousel image', () => {
+    homepage.nextImage.click()
+    homepage.firstImage.should('be.visible')
+  })
 })
