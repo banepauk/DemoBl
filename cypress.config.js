@@ -6,5 +6,10 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl : 'https://www.demoblaze.com',
+    api : 'https://api.demoblaze.com',
+    env : {
+      VALID_USER_EMAIL: 'testerbr@gmail.com',
+      VALID_USER_PASSWORD: 'password',
+    }
   },
 });

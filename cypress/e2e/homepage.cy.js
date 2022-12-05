@@ -6,8 +6,17 @@ describe('homepage', () => {
     cy.visit('/')
   })
 
-  it('navigate to home page', () => {
+  it.only('navigate to home page', () => {
+    cy.intercept({
+      method: 'GET',
+       url : 'https://api.demoblaze.com/index.html'
+    }).as('homePage')
+    
+    cy.visit('/')
     homepage.home.click()
+    cy.wait('@homePage').then(interception=>{
+      expect(interception.response.statusCode).to.exist
+    })
     cy.url().should('include', '/index')
     homepage.productStoreLogo.should('be.visible')
       .and('have.text', '\n      PRODUCT STORE')
@@ -34,7 +43,7 @@ describe('homepage', () => {
     homepage.laptopCategory.click()
   })
 
-  it.only('change carousel image', () => {
+  it('change carousel image', () => {
     homepage.nextImage.click()
     homepage.firstImage.should('be.visible')
   })
